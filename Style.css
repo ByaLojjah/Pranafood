@@ -1,0 +1,1001 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+
+/* Top banner */
+.top-banner {
+    background-color: #c44853;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+    width: 100%;
+    position: relative;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px; 
+    background-color: rgba(255, 255, 255, 1); /* Fond initial */
+    width: 100%;
+    height: 60px; /* Hauteur normale */
+    position: fixed;
+    top: 40px;
+    z-index: 100; /* Meilleure gestion des superpositions */
+    transition: height 0.3s ease, background-color 0.3s ease; /* Animation fluide */
+}
+
+/* Ajustement de la hauteur lorsque le contenu défile */
+header:has(+ main:before) .navbar {
+    height: 100px; /* Inclut la top-banner */
+}
+
+
+/* Navigation links */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li {
+    display: inline;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #B82330;
+    font-weight: bold;
+    margin-right: 20px;
+}
+
+
+.icons {
+    display: flex;
+    align-items: center;
+    right: 20px;
+}
+
+.icons a {
+    margin-left: 20px;
+    color: #B82330;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.icons select {
+    border: none;
+    background: transparent;
+    font-size: 16px;
+    color: #B82330;
+}
+
+
+
+/* Slider */
+.slider {
+    position: relative;
+    width: 1350px;
+    max-width: 1800px;
+    height: 500px;
+    overflow: hidden;
+}
+
+/* Masquer les radios */
+input {
+    display: flex;
+}
+
+/* Conteneur des slides */
+.slides {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* Styles des slides */
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transform: scale(1);
+    transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+}
+
+/* Effet de recul + apparition */
+#slide1:checked~.slides #img1,
+#slide2:checked~.slides #img2 {
+    opacity: 1;
+    transform: scale(0.9);
+}
+
+/* Rétablissement de la taille normale après l'effet */
+#slide1:checked~.slides #img1 img,
+#slide2:checked~.slides #img2 img {
+    animation: scaleUp 0.6s ease-in-out forwards;
+}
+
+@keyframes scaleUp {
+    from {
+        transform: scale(0.9);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.controls {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+
+.controls label {
+    width: 12px;
+    height: 12px;
+    background-color: white;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid gray;
+    transition: background 0.3s ease-in-out;
+}
+
+#slide1:checked~.controls label[for="slide1"],
+#slide2:checked~.controls label[for="slide2"] {
+    background-color: gray;
+}
+
+/* Section des produits */
+.title {
+    font-size: 28px;
+    color: #B82330;
+    margin: 70px;
+    text-align: center;
+    /* Centrage horizontal */
+    display: block;
+}
+
+.container {
+    max-width: 100%;
+    /* Ajuste la largeur du contenu */
+    margin: 0 auto;
+    /* Centre l'ensemble du contenu */
+}
+
+.product-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.product {
+    background-color: white;
+    padding: 10px;
+    max-width: 300px;
+}
+
+.product img {
+    width: 100%;
+    height: auto;
+}
+
+.product h3 {
+    font-size: 18px;
+    margin-top: 10px;
+    color: #555;
+}
+
+.product p {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 8px;
+    color: #555;
+    text-align: center;
+}
+
+
+
+/* Style du bouton "View all products" */
+.view-all-container {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.view-all-btn {
+    background-color: #555;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.view-all-btn:hover {
+    background-color: #333;
+}
+
+/* Section Produits */
+.products-section {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 50px;
+}
+
+/* Carte Produit */
+.produit {
+    position: relative;
+    max-width: 400px;
+    overflow: hidden;
+
+}
+
+.image-container {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: transform 0.5s ease-in-out;
+}
+
+
+.produit:hover .image-container img {
+    transform: scale(1.1);
+}
+
+/* Overlay avec le texte et le bouton */
+.overlay {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    background: rgba(255, 255, 255, );
+    color: black;
+    padding: 15px 10px;
+    text-align: center;
+    text-align: left;
+    /* Aligne le texte et le bouton à gauche */
+}
+
+
+.overlay h2 {
+    font-size: 24px;
+    color: white;
+    margin-bottom: 5px;
+    /* Moins d'espace sous le titre */
+    margin-left: 20px;
+    /* Légèrement décalé à gauche */
+}
+
+
+.overlay button {
+    background-color: white;
+    color: #363636;
+    border: 1px solid #ccc;
+    padding: 12px 24px;
+    /* Augmente l'espace intérieur pour agrandir le bouton */
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 10px;
+    display: block;
+    /* Pour s’assurer qu’il soit bien centré */
+    margin: 5px auto 0 auto;
+    /* Centrer sous le texte */
+}
+
+.overlay button:hover {
+    background-color: #f5f5f5;
+}
+
+/* Section des recettes */
+.recipes-section {
+    background-image: url('..\\IMAGES\\banniere_site_web_sous_recette_1920x1080.jpeg');
+    padding: 20px;
+
+}
+
+.recipes-section h2 {
+    color: #C74E3F;
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.card-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.card {
+    background-color: white;
+    text-align: start;
+    color: #024959;
+    width: 300px;
+    padding: 15px;
+
+}
+
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+
+}
+
+.card h3 {
+    font-size: 16px;
+    margin: 10px 0;
+    color: #53555A;
+}
+
+.see-more {
+    color: #53555A;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.see-more:hover {
+    text-decoration: underline;
+}
+
+.buttonn {
+    background-color: white;
+    color: #53555A;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.buttonn:hover {
+    border: 1px solid #53555A;
+}
+
+.center-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30vh;
+}
+
+
+/* Section Instagram */
+.instagram-section {
+    text-align: center;
+    padding: 20px;
+    background: #FFB6A6;
+}
+
+.instagram-section h2 {
+    color: #B82330;
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+
+.instagram-carousel {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    max-width: 90vw;
+    margin: auto;
+}
+
+
+
+.carousel-container {
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    display: flex;
+    max-width: 80%;
+    border-radius: 10px;
+    scroll-snap-type: x mandatory;
+}
+
+
+.carousel-track {
+    display: flex;
+    gap: 15px;
+    flex-wrap: nowrap;
+}
+
+
+.carousel-track img,
+.carousel-track video {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    scroll-snap-align: start;
+}
+
+
+button.prev,
+button.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 50%;
+    z-index: 10;
+}
+
+button.prev {
+    left: 10px;
+}
+
+button.next {
+    right: 10px;
+}
+
+button.prev:hover,
+button.next:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+
+/* Section Avis Clients */
+.reviews-section {
+    text-align: center;
+    padding: 40px 20px;
+    background: #F5F5F5;
+}
+
+.reviews-section h2 {
+    color: #B82330;
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.reviews-section p {
+    font-size: 18px;
+    color: #333;
+}
+
+/* Carrousel */
+.carousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    max-width: 80%;
+    margin: auto;
+}
+
+/* Conteneur des cartes */
+.carousel-container {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 10px;
+    justify-content: center;
+}
+
+/* Cartes d'avis */
+.review-card {
+    text-align: center;
+    padding: 15px;
+    border-radius: 10px;
+    width: 250px;
+}
+
+.review-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Étoiles */
+.stars {
+    color: #ffcc00;
+    font-size: 20px;
+    margin: 5px 0;
+}
+
+/* Texte de l'avis */
+.review-text {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+.review-desc {
+    font-size: 14px;
+    color: #555;
+}
+
+/* Nom du client */
+.customer-name {
+    font-size: 14px;
+    font-weight: bold;
+    color: #777;
+}
+
+/* Flèches de navigation */
+button.prev,
+button.next {
+    position: absolute;
+    background: none;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: #B82330;
+}
+
+button.prev {
+    left: 10px;
+}
+
+button.next {
+    right: 10px;
+}
+
+button.prev:hover,
+button.next:hover {
+    color: #7c121e;
+}
+
+
+.car-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+    min-height: 380px;
+    width: 100%;
+    overflow: hidden;
+    background: url('..\\IMAGES\\photo_1200x.jpeg') no-repeat center center/cover;
+    /* Image de fond optionnelle */
+}
+
+.car {
+    background: #ffffff;
+    margin: 40px auto;
+    padding: 38px 20px;
+    max-width: 250px;
+}
+
+
+
+.car span {
+    font-size: 1.5rem;
+    color: #1C1B1B;
+    margin-bottom: 15px;
+}
+
+.car p {
+    font-size: 16px;
+    color: #1C1B1B;
+    font-weight: 24.4;
+    margin-top: 15px;
+}
+
+.see-more {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 15px;
+    color: #1C1B1B;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 24.4px;
+}
+
+/* Section principale */
+.info-section {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.info-section h2 {
+    color: #B82330;
+}
+
+/* Conteneur des cartes */
+.content-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Cartes individuelles */
+.info-card {
+    background: white;
+    padding: 20px;
+    max-width: 350px;
+    text-align: justify;
+}
+
+.info-card h3 {
+    color: #B82330;
+    font-size: 22px;
+    font-weight: 36.3px;
+    margin-top: 10px;
+}
+
+.info-card p {
+    color: #53555A;
+    font-size: 16px;
+    font-weight: 26.4px;
+    margin-top: 15px;
+}
+
+
+/* Images des cartes */
+.info-card img {
+    width: 100%;
+    height: 266px;
+
+}
+
+/* Bouton */
+.learn-more {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 16px;
+    color: #53555A;
+}
+
+.buton {
+    background-color: #53555A;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 15px;
+    font-size: 16px;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+}
+
+
+.contain {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 50px;
+}
+
+.about-image {
+    flex: 1;
+    max-width: 50%;
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.about-text {
+    flex: 1;
+    padding-left: 40px;
+    max-width: 50%;
+}
+
+.about-text h2 {
+    color: #B82330;
+    font-size: 24px;
+    font-weight: 39.6px;
+}
+
+.about-text p {
+    font-size: 14px;
+    font-weight: 23.1px;
+    color: #53555A;
+    margin-top: 25px;
+    text-align: justify;
+}
+
+.about-text h3 {
+    font-size: 14px;
+    font-weight: 23.1px;
+    color: #B82330;
+    margin-top: 25px;
+}
+
+.nav-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 50px;
+    gap: 20px;
+}
+
+.nav-bar a {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.nav-bar a.active {
+    font-size: 20px;
+    color: #B82330;
+    position: relative;
+}
+
+.nav-bar a.active::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #A6192E;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+}
+
+
+
+/* Section d'inscription */
+.sub {
+    background-image: url('IMAGES/banniere_bas_site_web_1500x.jpeg');
+    /* Assurez-vous que le chemin de l'image est correct */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    min-height: 350px;
+    /* Assurez une hauteur minimale */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 50px 20px;
+    margin-top: 50px;
+}
+
+.subscribe-section {
+    background: rgba(255, 255, 255, 0);
+    /* Ajout d'un léger fond pour améliorer la lisibilité */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.subscribe-section h2 {
+    font-size: 28px;
+    font-weight: bold;
+    color: white;
+    text-transform: capitalize;
+    margin-bottom: 10px;
+}
+
+.subscribe-section p {
+    font-size: 16px;
+    color: white;
+    margin-bottom: 20px;
+}
+
+/* Formulaire d'inscription */
+.subscribe-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    /* Permet au formulaire de bien s'adapter aux petits écrans */
+}
+
+.subscribe-form input {
+    padding: 12px;
+    width: 300px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+}
+
+.subscribe-form button {
+    padding: 12px 20px;
+    background-color: white;
+    color: black;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.subscribe-form button:hover {
+    background-color: #f4f4f4;
+}
+
+
+
+
+
+/* Bas de la section */
+
+
+
+/* Footer */
+.footer {
+    position: relative;
+    background-color: #F8C9B5;
+    padding: 40px 60px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 300px;
+    margin-bottom: 20px;
+}
+
+.footer-column h3 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #4d2800;
+    margin-bottom: 15px;
+}
+
+.footer-column p {
+    font-size: 14px;
+    color: #4d2800;
+    line-height: 1.6;
+    margin-left: 30px;
+}
+
+.imgg{
+    width: 140px;
+    height: 64px;
+}
+
+/* Liens */
+.footer-links {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: #b22222;
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+/* Réseaux sociaux */
+.social-icons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.social-icons img {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+/* Newsletter */
+.newsletter input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.newsletter button {
+    padding: 10px 20px;
+    background-color: #4d4d4d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.newsletter button:hover {
+    background-color: #333;
+}
+
+/* Positionnement de l'image de l'oiseau */
+.bird {
+    position: absolute;
+    right: 30px;
+    top: -100px;
+    width: 200px;
+    height: 196px;
+    /* Ajuster selon l'image */
+    height: auto;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .content-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+
+@media screen and (min-width: 641px) {
+    .car {
+        padding: 48px 15px;
+        max-width: 380px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .about-image,
+    .about-text {
+        width: 100%;
+    }
+
+    .about-text {
+        padding-top: 20px;
+    }
+
+    .nav-bar {
+        justify-content: center;
+    }
+}
