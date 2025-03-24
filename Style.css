@@ -22,19 +22,20 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 30px; 
-    background-color: rgba(255, 255, 255, 1); /* Fond initial */
+    padding: 10px 30px;
+    background-color: rgba(255, 255, 255, 1);
     width: 100%;
-    height: 60px; /* Hauteur normale */
+    height: 60px;
     position: fixed;
     top: 40px;
-    z-index: 100; /* Meilleure gestion des superpositions */
-    transition: height 0.3s ease, background-color 0.3s ease; /* Animation fluide */
+    z-index: 100;
+    transition: height 0.3s ease, background-color 0.3s ease;
+
 }
 
-/* Ajustement de la hauteur lorsque le contenu défile */
+
 header:has(+ main:before) .navbar {
-    height: 100px; /* Inclut la top-banner */
+    height: 100px;
 }
 
 
@@ -56,6 +57,23 @@ header:has(+ main:before) .navbar {
     margin-right: 20px;
 }
 
+/*Menu Burger  */
+.menu-checkbox {
+    display: none;
+}
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.bar {
+    width: 30px;
+    height: 4px;
+    background-color: black;
+    margin: 5px 0;
+}
 
 .icons {
     display: flex;
@@ -88,7 +106,6 @@ header:has(+ main:before) .navbar {
     overflow: hidden;
 }
 
-/* Masquer les radios */
 input {
     display: flex;
 }
@@ -110,14 +127,13 @@ input {
     transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
 }
 
-/* Effet de recul + apparition */
+
 #slide1:checked~.slides #img1,
 #slide2:checked~.slides #img2 {
     opacity: 1;
     transform: scale(0.9);
 }
 
-/* Rétablissement de la taille normale après l'effet */
 #slide1:checked~.slides #img1 img,
 #slide2:checked~.slides #img2 img {
     animation: scaleUp 0.6s ease-in-out forwards;
@@ -172,15 +188,12 @@ img {
     color: #B82330;
     margin: 70px;
     text-align: center;
-    /* Centrage horizontal */
     display: block;
 }
 
 .container {
     max-width: 100%;
-    /* Ajuste la largeur du contenu */
     margin: 0 auto;
-    /* Centre l'ensemble du contenu */
 }
 
 .product-container {
@@ -273,7 +286,6 @@ img {
     transform: scale(1.1);
 }
 
-/* Overlay avec le texte et le bouton */
 .overlay {
     position: absolute;
     bottom: 10px;
@@ -285,7 +297,6 @@ img {
     padding: 15px 10px;
     text-align: center;
     text-align: left;
-    /* Aligne le texte et le bouton à gauche */
 }
 
 
@@ -293,9 +304,7 @@ img {
     font-size: 24px;
     color: white;
     margin-bottom: 5px;
-    /* Moins d'espace sous le titre */
     margin-left: 20px;
-    /* Légèrement décalé à gauche */
 }
 
 
@@ -304,14 +313,11 @@ img {
     color: #363636;
     border: 1px solid #ccc;
     padding: 12px 24px;
-    /* Augmente l'espace intérieur pour agrandir le bouton */
     font-size: 14px;
     cursor: pointer;
     border-radius: 10px;
     display: block;
-    /* Pour s’assurer qu’il soit bien centré */
     margin: 5px auto 0 auto;
-    /* Centrer sous le texte */
 }
 
 .overlay button:hover {
@@ -539,7 +545,7 @@ button.next:hover {
     margin: 5px 0;
 }
 
-/* Texte de l'avis */
+
 .review-text {
     font-size: 16px;
     margin: 5px 0;
@@ -550,7 +556,6 @@ button.next:hover {
     color: #555;
 }
 
-/* Nom du client */
 .customer-name {
     font-size: 14px;
     font-weight: bold;
@@ -594,7 +599,6 @@ button.next:hover {
     width: 100%;
     overflow: hidden;
     background: url('..\\IMAGES\\photo_1200x.jpeg') no-repeat center center/cover;
-    /* Image de fond optionnelle */
 }
 
 .car {
@@ -629,7 +633,6 @@ button.next:hover {
     font-weight: 24.4px;
 }
 
-/* Section principale */
 .info-section {
     text-align: center;
     padding: 40px 20px;
@@ -639,7 +642,7 @@ button.next:hover {
     color: #B82330;
 }
 
-/* Conteneur des cartes */
+
 .content-wrapper {
     display: flex;
     flex-wrap: wrap;
@@ -649,7 +652,7 @@ button.next:hover {
     margin: 0 auto;
 }
 
-/* Cartes individuelles */
+
 .info-card {
     background: white;
     padding: 20px;
@@ -672,14 +675,12 @@ button.next:hover {
 }
 
 
-/* Images des cartes */
 .info-card img {
     width: 100%;
     height: 266px;
 
 }
 
-/* Bouton */
 .learn-more {
     display: inline-block;
     margin-top: 10px;
@@ -783,13 +784,11 @@ button.next:hover {
 /* Section d'inscription */
 .sub {
     background-image: url('IMAGES/banniere_bas_site_web_1500x.jpeg');
-    /* Assurez-vous que le chemin de l'image est correct */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     width: 100%;
     min-height: 350px;
-    /* Assurez une hauteur minimale */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -800,7 +799,6 @@ button.next:hover {
 
 .subscribe-section {
     background: rgba(255, 255, 255, 0);
-    /* Ajout d'un léger fond pour améliorer la lisibilité */
     padding: 20px;
     border-radius: 10px;
 }
@@ -826,7 +824,6 @@ button.next:hover {
     align-items: center;
     gap: 10px;
     flex-wrap: wrap;
-    /* Permet au formulaire de bien s'adapter aux petits écrans */
 }
 
 .subscribe-form input {
@@ -852,13 +849,6 @@ button.next:hover {
 .subscribe-form button:hover {
     background-color: #f4f4f4;
 }
-
-
-
-
-
-/* Bas de la section */
-
 
 
 /* Footer */
@@ -891,7 +881,7 @@ button.next:hover {
     margin-left: 30px;
 }
 
-.imgg{
+.imgg {
     width: 140px;
     height: 64px;
 }
@@ -959,43 +949,144 @@ button.next:hover {
     top: -100px;
     width: 200px;
     height: 196px;
-    /* Ajuster selon l'image */
     height: auto;
 }
 
 /* Responsive */
-@media (max-width: 768px) {
-    .content-wrapper {
+/* Pour les écrans de moins de 1024px (tablettes) */
+@media (max-width: 1024px) {
+    .navbar {
+        padding: 10px 20px;
+    }
+
+    .slider {
+        width: 100%;
+        height: 700px;
+    }
+
+    .product-container {
         flex-direction: column;
         align-items: center;
     }
-}
 
-
-@media screen and (min-width: 641px) {
-    .car {
-        padding: 48px 15px;
-        max-width: 380px;
+    .info-card {
+        max-width: 90%;
     }
 }
 
-@media (max-width: 768px) {
-    .container {
-        flex-direction: column;
-        text-align: center;
-        padding: 20px;
+/* Pour les écrans de moins de 768px (mobiles) */
+@media screen and (max-width: 768px) {
+
+    .menu-toggle {
+        display: flex;
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        z-index: 2;
     }
 
-    .about-image,
-    .about-text {
-        width: 100%;
-    }
+    @media screen and (max-width: 768px) {
 
-    .about-text {
-        padding-top: 20px;
-    }
+        .navbar {
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 10px 20px;
+        }
 
-    .nav-bar {
-        justify-content: center;
+
+        .logo {
+            order: -1;
+        }
+
+
+        .icons {
+            display: none;
+        }
+
+
+        .menu-toggle {
+            display: flex;
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            z-index: 2;
+        }
+
+
+        .nav-links {
+            display: none;
+            flex-direction: column;
+            width: 100%;
+            background-color: white;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            text-align: center;
+            padding: 20px 0;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .menu-checkbox:checked+.menu-toggle+.nav-links {
+            display: flex;
+        }
     }
 }
+    @media (max-width: 768px) {
+        .navbar {
+            flex-direction: column;
+            height: auto;
+            text-align: center;
+        }
+
+        .nav-links {
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .icons {
+            margin-top: 10px;
+        }
+
+        .slider {
+            height: 250px;
+        }
+
+        .product {
+            max-width: 100%;
+        }
+
+        .about-image,
+        .about-text {
+            max-width: 100%;
+            text-align: center;
+        }
+
+        .about-text {
+            padding-left: 0;
+            margin-top: 20px;
+        }
+    }
+
+    /* Pour les très petits écrans (moins de 480px) */
+    @media (max-width: 480px) {
+        .title {
+            font-size: 22px;
+        }
+
+        .view-all-btn {
+            width: 100%;
+        }
+
+        .overlay h2 {
+            font-size: 18px;
+        }
+
+        .overlay button {
+            font-size: 12px;
+            padding: 8px 16px;
+        }
+
+        .review-card {
+            width: 90%;
+        }
+    }
